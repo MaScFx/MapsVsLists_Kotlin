@@ -3,4 +3,20 @@
     <string name="collection_title">Please enter collection size and number of elements to compare</string>
     <string name="map_title">Please enter map size and number of elements to compare</string>
     <string name="tf_enter_value">enter value</string>
+    <string name="col_add_beginning">Adding in the beginning</string>
+    <string name="col_add_middle">Adding in the middle</string>
+    <string name="col_add_end">Adding in the end</string>
+    <string name="col_search">Search by value</string>
+    <string name="col_removing_beginning">Removing in the beginning</string>
+    <string name="col_removing_middle">Removing in the middle</string>
+    <string name="col_removing_end">Removing in the end</string>
+    <string name="clear">Clean</string>
+    <string name="map_adding_new">Adding new</string>
+    <string name="map_search">Search by key</string>
+    <string name="map_removing">Removing</string>
+    <string name="type_HashMap">HashMap</string>
+    <string name="type_TreeMap">TreeMap</string>
+    <string name="type_LL">LinkedList</string>
+    <string name="type_AL">ArrayList</string>
+    <string name="type_CoW">CopyOnWrite</string>
 </resources>

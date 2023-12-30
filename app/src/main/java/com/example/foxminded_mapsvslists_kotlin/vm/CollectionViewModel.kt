@@ -30,7 +30,19 @@ class CollectionViewModel(
             _uiState.update { currentState ->
                 currentState.copy(
                     waitingForUserInput = false,
-                    calculation = true
+                    calculation = true,
+                )
+
+            }
+            _uiState.update { currentState ->
+                currentState.copy(
+                    result = runner.calculateTests(count)
+                )
+
+            }
+            _uiState.update { currentState ->
+                currentState.copy(
+                    calculation = false
                 )
             }
         }

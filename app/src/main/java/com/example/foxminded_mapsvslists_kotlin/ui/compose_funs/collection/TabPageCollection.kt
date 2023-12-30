@@ -7,7 +7,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.foxminded_mapsvslists_kotlin.R
 import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.EnterSizeScreen
-import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.ResultItem
 import com.example.foxminded_mapsvslists_kotlin.vm.CollectionViewModel
 
 @Composable
@@ -22,9 +21,16 @@ fun TabPageCollection(collectionViewModel: CollectionViewModel = viewModel(facto
             onClickButton = { collectionViewModel.calculate(it) })
 
         false -> if (collectionUiState.calculation)
-            ResultItem()
+            CollectionResult(
+                onBackClick = { collectionViewModel.backToInputScreen() },
+                resultIsReady = false
+            )
         else
-            ResultItem()
+            CollectionResult(
+                onBackClick = { collectionViewModel.backToInputScreen() },
+                resultIsReady = true,
+                result = collectionUiState.result
+            )
     }
 
 }
