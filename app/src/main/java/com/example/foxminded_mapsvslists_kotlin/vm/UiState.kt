@@ -1,7 +1,7 @@
 package com.example.foxminded_mapsvslists_kotlin.vm
 
-sealed class UiState {
-    data class Result(val result: Map<Int, Int>) : UiState()
-    object WaitingForUserInput : UiState()
-    object Calculation : UiState()
-}
+data class UiState(
+    val result: Map<Int, Int> = HashMap(),
+    val waitingForUserInput: Boolean = true,
+    val calculation: Boolean = false
+)

@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.foxminded_mapsvslists_kotlin.vm.CollectionViewModel
 
-@Preview(showBackground = true)
 @Composable
 fun EnterSizeScreen(
     title: String = "title",
