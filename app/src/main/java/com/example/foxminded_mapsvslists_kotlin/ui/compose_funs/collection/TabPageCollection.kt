@@ -18,7 +18,9 @@ fun TabPageCollection(collectionViewModel: CollectionViewModel = viewModel(facto
         true -> EnterSizeScreen(
             title = stringResource(id = R.string.collection_title),
             textFieldValue = stringResource(id = R.string.tf_enter_value),
-            onClickButton = { collectionViewModel.calculate(it) })
+            onClickButton = { collectionViewModel.calculate(it) },
+            numberInTextFieldField = collectionUiState.inputNumber
+        )
 
         false -> if (collectionUiState.calculation)
             CollectionResult(

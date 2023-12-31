@@ -5,9 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.example.foxminded_mapsvslists_kotlin.data.IOperationRepository
-import com.example.foxminded_mapsvslists_kotlin.data.OperationRepository
-import com.example.foxminded_mapsvslists_kotlin.model.OperationRunner
+import com.example.foxminded_mapsvslists_kotlin.model.IOperationsRunner
+import com.example.foxminded_mapsvslists_kotlin.model.MapsOperationsRunner
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,7 +14,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class MapViewModel(
-    private val runner: IOperationRepository
+//    private val runner: IOperationRepository
+    private val runner: IOperationsRunner
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(UiState())
@@ -27,12 +27,18 @@ class MapViewModel(
                 currentState.copy(
                     waitingForUserInput = false,
                     calculation = true,
+                    inputNumber = count
                 )
 
             }
+            runner.init(count)
+            val hm = HashMap<Int, Int>()
+            runner.runTests().collect {
+                hm.putAll(it)
+            }
             _uiState.update { currentState ->
                 currentState.copy(
-                    result = runner.calculateTests(count)
+                    result = hm
                 )
 
             }
@@ -59,7 +65,9 @@ class MapViewModel(
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                MapViewModel(runner = OperationRepository(OperationRunner()))
+//                MapViewModel(runner = OperationRepository(MapsOperationsRunner()))
+                MapViewModel(runner = MapsOperationsRunner())
+
             }
         }
     }

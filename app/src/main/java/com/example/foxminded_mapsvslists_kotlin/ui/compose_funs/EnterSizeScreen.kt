@@ -14,21 +14,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.foxminded_mapsvslists_kotlin.vm.CollectionViewModel
 
 @Composable
 fun EnterSizeScreen(
     title: String = "title",
     textFieldValue: String = "enter value",
-    onClickButton : (Int)->Unit
+    onClickButton: (Int) -> Unit,
+    numberInTextFieldField: Int = 0
 ) {
 
+//    val enterParam = remember {
     val enterParam = remember {
-        mutableStateOf("0")
+        mutableStateOf(numberInTextFieldField.toString())
     }
     Column {
         Text(
@@ -53,6 +52,5 @@ fun EnterSizeScreen(
             }
         }
     }
-
 }
 

@@ -8,12 +8,14 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.foxminded_mapsvslists_kotlin.data.IOperationRepository
 import com.example.foxminded_mapsvslists_kotlin.data.OperationRepository
-import com.example.foxminded_mapsvslists_kotlin.model.OperationRunner
+import com.example.foxminded_mapsvslists_kotlin.model.MapsOperationsRunner
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.newSingleThreadContext
 
 
 class CollectionViewModel(
@@ -25,25 +27,22 @@ class CollectionViewModel(
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun calculate(count: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(newSingleThreadContext("Counter")) {
+
             _uiState.update { currentState ->
                 currentState.copy(
                     waitingForUserInput = false,
                     calculation = true,
                 )
-
             }
             _uiState.update { currentState ->
                 currentState.copy(
-                    result = runner.calculateTests(count)
-                )
-
-            }
-            _uiState.update { currentState ->
-                currentState.copy(
+                    result = runner.calculateTests(count),
                     calculation = false
                 )
+
             }
         }
     }
@@ -62,7 +61,7 @@ class CollectionViewModel(
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                CollectionViewModel(runner = OperationRepository(OperationRunner()))
+                CollectionViewModel(runner = OperationRepository(MapsOperationsRunner()))
             }
         }
     }
