@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class MapViewModel(
-//    private val runner: IOperationRepository
     private val runner: IOperationsRunner
 ) : ViewModel() {
 
@@ -27,7 +26,7 @@ class MapViewModel(
                 currentState.copy(
                     waitingForUserInput = false,
                     calculation = true,
-                    inputNumber = count
+                    defaultInputCount = count
                 )
 
             }

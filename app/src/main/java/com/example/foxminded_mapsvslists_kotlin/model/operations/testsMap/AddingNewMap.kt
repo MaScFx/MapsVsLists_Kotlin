@@ -8,7 +8,6 @@ class AddingNewMap(private val testMap: MutableMap<Int, Int>, private val testID
     override suspend fun runTask() {
         val size: Int = testMap.size
         testMap[size + 1] = size + 1
-        delay(5)
         Log.d("Operation", "AddingNewMap: " + testMap[size + 1])
     }
 }

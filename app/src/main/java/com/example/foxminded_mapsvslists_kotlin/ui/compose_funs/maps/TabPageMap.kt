@@ -18,7 +18,7 @@ fun TabPageMap(mapViewModel: MapViewModel = viewModel(factory = MapViewModel.Fac
         true -> EnterSizeScreen(title = stringResource(id = R.string.map_title),
             textFieldValue = stringResource(id = R.string.tf_enter_value),
             onClickButton = { mapViewModel.calculate(it) },
-            numberInTextFieldField = mapUiState.inputNumber)
+            numberInTextFieldField = mapUiState.defaultInputCount)
 
         false -> if (mapUiState.calculation) MapResult(
             onBackClick = { mapViewModel.backToInputScreen() },

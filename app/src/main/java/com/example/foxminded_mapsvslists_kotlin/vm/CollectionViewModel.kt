@@ -10,6 +10,7 @@ import com.example.foxminded_mapsvslists_kotlin.data.IOperationRepository
 import com.example.foxminded_mapsvslists_kotlin.data.OperationRepository
 import com.example.foxminded_mapsvslists_kotlin.model.MapsOperationsRunner
 import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -27,9 +28,8 @@ class CollectionViewModel(
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
 
-    @OptIn(DelicateCoroutinesApi::class)
     fun calculate(count: Int) {
-        viewModelScope.launch(newSingleThreadContext("Counter")) {
+        viewModelScope.launch(Dispatchers.Default) {
 
             _uiState.update { currentState ->
                 currentState.copy(

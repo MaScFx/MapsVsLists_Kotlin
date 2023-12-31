@@ -1,5 +1,6 @@
 package com.example.foxminded_mapsvslists_kotlin.model
 
+import android.util.Log
 import com.example.foxminded_mapsvslists_kotlin.model.constants.Operations
 import com.example.foxminded_mapsvslists_kotlin.model.operations.IOperation
 import com.example.foxminded_mapsvslists_kotlin.model.operations.testsMap.AddingNewMap
@@ -14,10 +15,13 @@ class MapsOperationsRunner : IOperationsRunner {
     val results = HashMap<Int, Int>()
 
     override suspend fun init(collectionSize: Int) {
+        Log.d("Operation", "startInitMap: count $collectionSize")
         for (i in 0..collectionSize) {
             hashMap[i] = i
             treeMap[i] = i
         }
+        Log.d("Operation", "endInitMap: count HM: ${hashMap.size}, TM: ${treeMap.size}")
+
     }
 
     override suspend fun runTests(): Flow<HashMap<Int, Int>> = flow {
