@@ -14,7 +14,6 @@ import javax.inject.Inject
 @HiltViewModel
 class MapViewModel @Inject constructor(
     private val runner: IOperationsRunner
-//    private val runner: MapsOperationsRunner
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(UiState())

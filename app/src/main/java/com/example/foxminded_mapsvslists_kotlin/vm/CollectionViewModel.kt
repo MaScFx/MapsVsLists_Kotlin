@@ -1,11 +1,7 @@
 package com.example.foxminded_mapsvslists_kotlin.vm
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
-import com.example.foxminded_mapsvslists_kotlin.model.CollectionsOperationsRunner
 import com.example.foxminded_mapsvslists_kotlin.model.IOperationsRunner
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

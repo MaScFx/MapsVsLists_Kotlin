@@ -24,8 +24,8 @@ fun ResultItem(
     smallItem: Boolean = true,
 ) {
     val heightItem = if (smallItem) 70.dp else 100.dp
-    val widthItem  = if (smallItem) 130.dp else 200.dp
-    val widthProgressBar  = if (smallItem) 40.dp else 64.dp
+    val widthItem = if (smallItem) 130.dp else 200.dp
+    val widthProgressBar = if (smallItem) 40.dp else 64.dp
     OutlinedCard(
         border = BorderStroke(1.dp, Color.Black),
         modifier = Modifier
@@ -41,7 +41,7 @@ fun ResultItem(
                         .align(Alignment.Center),
                     color = MaterialTheme.colorScheme.secondary,
                     trackColor = MaterialTheme.colorScheme.surfaceVariant
-                    )
+                )
             } else {
                 Text(
                     text = result.toString(),

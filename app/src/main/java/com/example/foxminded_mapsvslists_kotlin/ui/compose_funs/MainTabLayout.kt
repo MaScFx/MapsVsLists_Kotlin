@@ -18,7 +18,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.collection.TabPageCollection
 import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.maps.TabPageMap
@@ -26,7 +25,6 @@ import com.example.foxminded_mapsvslists_kotlin.vm.CollectionViewModel
 import com.example.foxminded_mapsvslists_kotlin.vm.MapViewModel
 import kotlinx.coroutines.launch
 
-//@Preview(showBackground = true)
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MainTabLayout(collectionVM: CollectionViewModel, mapVM: MapViewModel) {

@@ -4,14 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.foxminded_mapsvslists_kotlin.R
 import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.EnterSizeScreen
 import com.example.foxminded_mapsvslists_kotlin.vm.MapViewModel
 
 @Composable
 fun TabPageMap(mapViewModel: MapViewModel) {
-//fun TabPageMap(mapViewModel: MapViewModel = viewModel(factory = MapViewModel.Factory)) {
 
     val mapUiState by mapViewModel.uiState.collectAsState()
 

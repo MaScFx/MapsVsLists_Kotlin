@@ -4,18 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.foxminded_mapsvslists_kotlin.R
 import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.EnterSizeScreen
 import com.example.foxminded_mapsvslists_kotlin.vm.CollectionViewModel
-import java.util.PrimitiveIterator
-import androidx.activity.viewModels
 
 @Composable
-//fun TabPageCollection(collectionViewModel: CollectionViewModel = viewModel(factory = CollectionViewModel.Factory)) {
 fun TabPageCollection(collectionViewModel: CollectionViewModel) {
-
-//    val vm: CollectionViewModel by viewModels()
 
     val collectionUiState by collectionViewModel.uiState.collectAsState()
 
