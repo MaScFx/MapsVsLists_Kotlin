@@ -14,8 +14,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.util.LinkedList
 import java.util.concurrent.CopyOnWriteArrayList
+import javax.inject.Inject
 
-class CollectionsOperationsRunner : IOperationsRunner {
+class CollectionsOperationsRunner @Inject constructor() : IOperationsRunner {
     private var arrayList = ArrayList<Int>()
     private var linkedList = LinkedList<Int>()
     private var copyOnWrite = CopyOnWriteArrayList<Int>()

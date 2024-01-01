@@ -10,8 +10,9 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.util.TreeMap
+import javax.inject.Inject
 
-class MapsOperationsRunner : IOperationsRunner {
+class MapsOperationsRunner @Inject constructor() : IOperationsRunner {
     private var hashMap = HashMap<Int, Int>()
     private var treeMap = TreeMap<Int, Int>()
     private val results = HashMap<Int, Int>()

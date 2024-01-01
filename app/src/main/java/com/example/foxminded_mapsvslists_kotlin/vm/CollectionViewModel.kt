@@ -7,16 +7,19 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.foxminded_mapsvslists_kotlin.model.CollectionsOperationsRunner
 import com.example.foxminded_mapsvslists_kotlin.model.IOperationsRunner
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
-class CollectionViewModel(
+@HiltViewModel
+class CollectionViewModel @Inject constructor(
     private val runner: IOperationsRunner
+//    private val runner: CollectionsOperationsRunner
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(UiState())
@@ -53,11 +56,11 @@ class CollectionViewModel(
         }
     }
 
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                CollectionViewModel(runner = CollectionsOperationsRunner())
-            }
-        }
-    }
+//    companion object {
+//        val Factory: ViewModelProvider.Factory = viewModelFactory {
+//            initializer {
+//                CollectionViewModel(runner = CollectionsOperationsRunner())
+//            }
+//        }
+//    }
 }

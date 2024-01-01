@@ -22,12 +22,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.collection.TabPageCollection
 import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.maps.TabPageMap
+import com.example.foxminded_mapsvslists_kotlin.vm.CollectionViewModel
+import com.example.foxminded_mapsvslists_kotlin.vm.MapViewModel
 import kotlinx.coroutines.launch
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun MainTabLayout() {
+fun MainTabLayout(collectionVM: CollectionViewModel, mapVM: MapViewModel) {
 
     val pagerState = rememberPagerState(pageCount = { HomeTabs.entries.size })
     val selectedTabIndex = remember { derivedStateOf { pagerState.currentPage } }
@@ -62,9 +64,9 @@ fun MainTabLayout() {
                 modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
             ) {
                 if (selectedTabIndex.value == 0) {
-                    TabPageCollection()
+                    TabPageCollection(collectionVM)
                 } else {
-                    TabPageMap()
+                    TabPageMap(mapVM)
                 }
             }
         }

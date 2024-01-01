@@ -1,20 +1,20 @@
 package com.example.foxminded_mapsvslists_kotlin.vm
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.foxminded_mapsvslists_kotlin.model.IOperationsRunner
-import com.example.foxminded_mapsvslists_kotlin.model.MapsOperationsRunner
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MapViewModel(
+@HiltViewModel
+class MapViewModel @Inject constructor(
     private val runner: IOperationsRunner
+//    private val runner: MapsOperationsRunner
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(UiState())
@@ -47,15 +47,6 @@ class MapViewModel(
                 currentState.copy(
                     waitingForUserInput = true, calculation = false
                 )
-            }
-        }
-    }
-
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                MapViewModel(runner = MapsOperationsRunner())
-
             }
         }
     }

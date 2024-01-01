@@ -10,7 +10,8 @@ import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.EnterSizeScreen
 import com.example.foxminded_mapsvslists_kotlin.vm.MapViewModel
 
 @Composable
-fun TabPageMap(mapViewModel: MapViewModel = viewModel(factory = MapViewModel.Factory)) {
+fun TabPageMap(mapViewModel: MapViewModel) {
+//fun TabPageMap(mapViewModel: MapViewModel = viewModel(factory = MapViewModel.Factory)) {
 
     val mapUiState by mapViewModel.uiState.collectAsState()
 
