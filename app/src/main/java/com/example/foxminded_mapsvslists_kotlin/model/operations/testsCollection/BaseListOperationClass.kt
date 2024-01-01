@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 abstract class BaseListOperationClass(
-    private val testList: MutableList<Int>,
     private val testID: Int
 ) : IOperation {
     override fun runTest(): Flow<Pair<Int, Int>> = flow {
@@ -16,8 +15,8 @@ abstract class BaseListOperationClass(
 
         emit(Pair<Int, Int>(getIDOperation(), finalTime.toInt()))
     }
-    protected abstract fun runTask()
 
+    protected abstract fun runTask()
 
 
     override fun getIDOperation(): Int {

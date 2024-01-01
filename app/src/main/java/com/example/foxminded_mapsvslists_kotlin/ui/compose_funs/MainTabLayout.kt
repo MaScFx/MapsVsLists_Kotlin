@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
@@ -24,14 +23,15 @@ import androidx.compose.ui.unit.dp
 import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.collection.TabPageCollection
 import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.maps.TabPageMap
 import kotlinx.coroutines.launch
+
 @Preview(showBackground = true)
-@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MainTabLayout() {
+
     val pagerState = rememberPagerState(pageCount = { HomeTabs.entries.size })
     val selectedTabIndex = remember { derivedStateOf { pagerState.currentPage } }
     val scope = rememberCoroutineScope()
-
 
     Column(
         modifier = Modifier
@@ -39,8 +39,7 @@ fun MainTabLayout() {
             .padding(top = 4.dp)
     ) {
         TabRow(
-            selectedTabIndex = selectedTabIndex.value,
-            modifier = Modifier.fillMaxWidth()
+            selectedTabIndex = selectedTabIndex.value, modifier = Modifier.fillMaxWidth()
         ) {
             HomeTabs.entries.forEachIndexed() { index, currentTab ->
                 Tab(selected = selectedTabIndex.value == index,
@@ -51,23 +50,20 @@ fun MainTabLayout() {
                             pagerState.animateScrollToPage(currentTab.ordinal)
                         }
                     },
-                    text = { Text(text = currentTab.name) }
-                )
+                    text = { Text(text = currentTab.name) })
             }
         }
         HorizontalPager(
-            state = pagerState,
-            modifier = Modifier
+            state = pagerState, modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
-        ) {s->
+        ) { _ ->
             Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
+                modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
             ) {
-                if (selectedTabIndex.value==0){
+                if (selectedTabIndex.value == 0) {
                     TabPageCollection()
-                } else{
+                } else {
                     TabPageMap()
                 }
             }
@@ -75,8 +71,6 @@ fun MainTabLayout() {
     }
 }
 
-
 enum class HomeTabs {
-    COLLECTIONS,
-    MAPS
+    COLLECTIONS, MAPS
 }

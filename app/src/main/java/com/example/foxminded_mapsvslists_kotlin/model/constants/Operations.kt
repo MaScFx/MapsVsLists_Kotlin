@@ -28,8 +28,5 @@ enum class Operations {
     SearchHM,
     SearchTM,
     RemovingHM,
-    RemovingTM,
-    //  Filling
-    FillingListCompleted,
-    FillingMapCompleted
+    RemovingTM
 }

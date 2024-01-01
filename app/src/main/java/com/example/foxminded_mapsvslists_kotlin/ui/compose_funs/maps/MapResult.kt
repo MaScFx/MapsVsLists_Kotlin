@@ -18,23 +18,16 @@ import com.example.foxminded_mapsvslists_kotlin.R
 import com.example.foxminded_mapsvslists_kotlin.model.constants.Operations
 import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.ResultItem
 
-@Preview(showBackground = true)
 @Composable
 fun MapResult(
-    onBackClick: () -> Unit = {},
-    resultIsReady: Boolean = false,
-    result: Map<Int, Int> = HashMap()
+    onBackClick: () -> Unit, result: Map<Int, Int> = HashMap()
 ) {
 
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-//            .verticalScroll(rememberScrollState())
+        modifier = Modifier.fillMaxWidth()
     ) {
         Row(
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-//                .background(color = Color.Gray)
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         ) {
 
             Column(
@@ -42,58 +35,70 @@ fun MapResult(
                     .padding(4.dp)
                     .weight(1f)
                     .align(Alignment.CenterVertically)
-//                    .background(color = Color.Yellow)
             ) {
                 Text(text = stringResource(id = R.string.map_adding_new))
                 ResultItem(
-                    title = stringResource(id = R.string.type_HashMap), smallItem = false,
+                    title = stringResource(id = R.string.type_HashMap),
+                    smallItem = false,
                     result = result[Operations.AddingNewHM.ordinal] ?: -1
                 )
                 Text(text = stringResource(id = R.string.map_search))
                 ResultItem(
-                    title = stringResource(id = R.string.type_HashMap), smallItem = false,
+                    title = stringResource(id = R.string.type_HashMap),
+                    smallItem = false,
                     result = result[Operations.SearchHM.ordinal] ?: -1
                 )
                 Text(text = stringResource(id = R.string.map_removing))
                 ResultItem(
-                    title = stringResource(id = R.string.type_HashMap), smallItem = false,
+                    title = stringResource(id = R.string.type_HashMap),
+                    smallItem = false,
                     result = result[Operations.RemovingHM.ordinal] ?: -1
                 )
             }
+
             Column(
                 modifier = Modifier
                     .padding(4.dp)
                     .weight(1f)
                     .align(Alignment.CenterVertically)
-//                    .background(color = Color.Yellow)
             ) {
                 Text(text = "")
                 ResultItem(
-                    title = stringResource(id = R.string.type_TreeMap), smallItem = false,
+                    title = stringResource(id = R.string.type_TreeMap),
+                    smallItem = false,
                     result = result[Operations.AddingNewTM.ordinal] ?: -1
                 )
                 Text(text = "")
                 ResultItem(
-                    title = stringResource(id = R.string.type_TreeMap), smallItem = false,
+                    title = stringResource(id = R.string.type_TreeMap),
+                    smallItem = false,
                     result = result[Operations.SearchTM.ordinal] ?: -1
                 )
                 Text(text = "")
                 ResultItem(
-                    title = stringResource(id = R.string.type_TreeMap), smallItem = false,
+                    title = stringResource(id = R.string.type_TreeMap),
+                    smallItem = false,
                     result = result[Operations.RemovingTM.ordinal] ?: -1
                 )
             }
         }
+
         Box(modifier = Modifier.fillMaxSize()) {
             Button(
                 onClick = onBackClick,
-                modifier = Modifier.align(Alignment.Center)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.Center)
+                    .padding(16.dp)
             ) {
                 Text(text = stringResource(id = R.string.clear))
-
             }
         }
     }
+}
 
-
+@Preview(showBackground = true)
+@Composable
+fun MapResultPreview() {
+    MapResult(onBackClick = {})
 }

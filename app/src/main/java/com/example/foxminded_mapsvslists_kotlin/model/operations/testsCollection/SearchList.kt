@@ -3,7 +3,7 @@ package com.example.foxminded_mapsvslists_kotlin.model.operations.testsCollectio
 import android.util.Log
 
 class SearchList(private val testList: MutableList<Int>, testID: Int) :
-    BaseListOperationClass(testList, testID) {
+    BaseListOperationClass(testID) {
     override fun runTask() {
         val result = testList.indexOf(testList.size)
         Log.d(

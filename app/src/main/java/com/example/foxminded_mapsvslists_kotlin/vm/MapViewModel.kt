@@ -24,11 +24,8 @@ class MapViewModel(
         viewModelScope.launch {
             _uiState.update { currentState ->
                 currentState.copy(
-                    waitingForUserInput = false,
-                    calculation = true,
-                    defaultInputCount = count
+                    waitingForUserInput = false, calculation = true, defaultInputCount = count
                 )
-
             }
             runner.init(count)
             val hm = HashMap<Int, Int>()
@@ -37,14 +34,9 @@ class MapViewModel(
             }
             _uiState.update { currentState ->
                 currentState.copy(
-                    result = hm
+                    result = hm, calculation = false
                 )
 
-            }
-            _uiState.update { currentState ->
-                currentState.copy(
-                    calculation = false
-                )
             }
         }
     }
@@ -53,22 +45,18 @@ class MapViewModel(
         viewModelScope.launch {
             _uiState.update { currentState ->
                 currentState.copy(
-                    waitingForUserInput = true,
-                    calculation = false
+                    waitingForUserInput = true, calculation = false
                 )
             }
         }
     }
 
-
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-//                MapViewModel(runner = OperationRepository(MapsOperationsRunner()))
                 MapViewModel(runner = MapsOperationsRunner())
 
             }
         }
     }
-
 }

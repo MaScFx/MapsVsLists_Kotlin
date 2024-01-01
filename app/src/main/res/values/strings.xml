@@ -19,4 +19,6 @@
     <string name="type_LL">LinkedList</string>
     <string name="type_AL">ArrayList</string>
     <string name="type_CoW">CopyOnWrite</string>
+    <string name="calculate">CALCULATE</string>
+    <string name="only_numbers">only numbers</string>
 </resources>

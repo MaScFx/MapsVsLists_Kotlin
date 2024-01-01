@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -12,23 +13,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.foxminded_mapsvslists_kotlin.R
 import com.example.foxminded_mapsvslists_kotlin.model.constants.Operations
 import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.ResultItem
 
-@Preview(showBackground = true)
 @Composable
 fun CollectionResult(
-    onBackClick: () -> Unit = {}, resultIsReady: Boolean = false, result: Map<Int, Int> = HashMap()
+    onBackClick: () -> Unit, result: Map<Int, Int> = HashMap()
 ) {
+
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
+        modifier = Modifier.fillMaxWidth()
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = stringResource(id = R.string.col_add_beginning), fontSize = 20.sp)
             Row {
@@ -48,6 +48,7 @@ fun CollectionResult(
                     result = result[Operations.AddingBeginningCoW.ordinal] ?: -1
                 )
             }
+
             Text(text = stringResource(id = R.string.col_add_middle))
             Row {
                 ResultItem(
@@ -66,6 +67,7 @@ fun CollectionResult(
                     result = result[Operations.AddingMiddleCoW.ordinal] ?: -1
                 )
             }
+
             Text(text = stringResource(id = R.string.col_add_end))
             Row {
                 ResultItem(
@@ -84,6 +86,7 @@ fun CollectionResult(
                     result = result[Operations.AddingEndCoW.ordinal] ?: -1
                 )
             }
+
             Text(text = stringResource(id = R.string.col_search))
             Row {
                 ResultItem(
@@ -102,6 +105,7 @@ fun CollectionResult(
                     result = result[Operations.SearchCoW.ordinal] ?: -1
                 )
             }
+
             Text(text = stringResource(id = R.string.col_removing_beginning))
             Row {
                 ResultItem(
@@ -120,6 +124,7 @@ fun CollectionResult(
                     result = result[Operations.RemovingBeginningCoW.ordinal] ?: -1
                 )
             }
+
             Text(text = stringResource(id = R.string.col_removing_middle))
 
             Row {
@@ -158,19 +163,24 @@ fun CollectionResult(
                     result = result[Operations.RemovingEndCoW.ordinal] ?: -1
                 )
             }
-
         }
+
         Box(modifier = Modifier.fillMaxSize()) {
             Button(
                 onClick = onBackClick,
-                Modifier
+                modifier = Modifier
                     .fillMaxWidth()
                     .align(Alignment.Center)
+                    .padding(16.dp)
             ) {
                 Text(text = stringResource(id = R.string.clear))
-
             }
         }
     }
+}
 
+@Preview(showBackground = true)
+@Composable
+fun CollectionResultPreview() {
+    CollectionResult(onBackClick = {})
 }

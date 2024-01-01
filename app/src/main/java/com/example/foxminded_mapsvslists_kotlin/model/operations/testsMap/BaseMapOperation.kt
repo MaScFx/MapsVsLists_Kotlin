@@ -6,10 +6,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 abstract class BaseMapOperation(
-    private val testMap: MutableMap<Int, Int>,
     private val testID: Int
-) :
-    IOperation {
+) : IOperation {
     override fun getIDOperation(): Int {
         return testID
     }

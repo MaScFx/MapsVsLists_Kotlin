@@ -18,21 +18,17 @@ fun TabPageCollection(collectionViewModel: CollectionViewModel = viewModel(facto
         true -> EnterSizeScreen(
             title = stringResource(id = R.string.collection_title),
             textFieldValue = stringResource(id = R.string.tf_enter_value),
-            onClickButton = { collectionViewModel.calculate(it) },
+            onClickButton = { collectionViewModel.calculate(it.toInt()) },
             numberInTextFieldField = collectionUiState.defaultInputCount
         )
 
-        false -> if (collectionUiState.calculation)
-            CollectionResult(
-                onBackClick = { collectionViewModel.backToInputScreen() },
-                resultIsReady = false
-            )
-        else
-            CollectionResult(
-                onBackClick = { collectionViewModel.backToInputScreen() },
-                resultIsReady = true,
-                result = collectionUiState.result
-            )
+        false -> if (collectionUiState.calculation) CollectionResult(
+            onBackClick = { collectionViewModel.backToInputScreen() },
+        )
+        else CollectionResult(
+            onBackClick = { collectionViewModel.backToInputScreen() },
+            result = collectionUiState.result
+        )
     }
 
 }
