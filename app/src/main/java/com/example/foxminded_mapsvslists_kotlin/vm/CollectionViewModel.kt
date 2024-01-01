@@ -6,21 +6,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.example.foxminded_mapsvslists_kotlin.data.IOperationRepository
-import com.example.foxminded_mapsvslists_kotlin.data.OperationRepository
-import com.example.foxminded_mapsvslists_kotlin.model.MapsOperationsRunner
-import kotlinx.coroutines.DelicateCoroutinesApi
+import com.example.foxminded_mapsvslists_kotlin.model.CollectionsOperationsRunner
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.newSingleThreadContext
 
 
 class CollectionViewModel(
-    private val runner: IOperationRepository
+    private val runner: CollectionsOperationsRunner
 ) : ViewModel() {
 
 
@@ -37,9 +33,14 @@ class CollectionViewModel(
                     calculation = true,
                 )
             }
+            runner.init(count)
+            val hm = HashMap<Int, Int>()
+            runner.runTests().collect {
+                hm.putAll(it)
+            }
             _uiState.update { currentState ->
                 currentState.copy(
-                    result = runner.calculateTests(count),
+                    result = hm,
                     calculation = false
                 )
 
@@ -61,7 +62,7 @@ class CollectionViewModel(
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                CollectionViewModel(runner = OperationRepository(MapsOperationsRunner()))
+                CollectionViewModel(runner = CollectionsOperationsRunner())
             }
         }
     }

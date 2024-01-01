@@ -5,18 +5,20 @@ import com.example.foxminded_mapsvslists_kotlin.model.constants.Operations
 import com.example.foxminded_mapsvslists_kotlin.model.operations.IOperation
 import com.example.foxminded_mapsvslists_kotlin.model.operations.testsMap.AddingNewMap
 import com.example.foxminded_mapsvslists_kotlin.model.operations.testsMap.RemovingMap
+import com.example.foxminded_mapsvslists_kotlin.model.operations.testsMap.SearchByKeyMap
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.util.TreeMap
 
 class MapsOperationsRunner : IOperationsRunner {
-    var hashMap = HashMap<Int, Int>()
-    var treeMap = TreeMap<Int, Int>()
-    val results = HashMap<Int, Int>()
+    private var hashMap = HashMap<Int, Int>()
+    private var treeMap = TreeMap<Int, Int>()
+    private val results = HashMap<Int, Int>()
 
     override suspend fun init(collectionSize: Int) {
         Log.d("Operation", "startInitMap: count $collectionSize")
-        for (i in 0..collectionSize) {
+        for (i in 0 until collectionSize) {
             hashMap[i] = i
             treeMap[i] = i
         }
@@ -25,13 +27,15 @@ class MapsOperationsRunner : IOperationsRunner {
     }
 
     override suspend fun runTests(): Flow<HashMap<Int, Int>> = flow {
-
-        initTests().forEach {
-            it.runTest().collect { pair ->
-                results[pair.first] = pair.second
+        coroutineScope {
+            initTests().forEach {
+                it.runTest().collect { pair ->
+                    results[pair.first] = pair.second
+                }
             }
+            emit(results)
         }
-        emit(results)
+
     }
 
     private fun initTests(): ArrayList<IOperation> {
@@ -40,8 +44,8 @@ class MapsOperationsRunner : IOperationsRunner {
         testsLists.add(AddingNewMap(treeMap, Operations.AddingNewTM.ordinal))
         testsLists.add(RemovingMap(hashMap, Operations.RemovingHM.ordinal))
         testsLists.add(RemovingMap(treeMap, Operations.RemovingTM.ordinal))
-        testsLists.add(AddingNewMap(hashMap, Operations.SearchHM.ordinal))
-        testsLists.add(AddingNewMap(treeMap, Operations.SearchTM.ordinal))
+        testsLists.add(SearchByKeyMap(hashMap, Operations.SearchHM.ordinal))
+        testsLists.add(SearchByKeyMap(treeMap, Operations.SearchTM.ordinal))
 
         return testsLists
     }
