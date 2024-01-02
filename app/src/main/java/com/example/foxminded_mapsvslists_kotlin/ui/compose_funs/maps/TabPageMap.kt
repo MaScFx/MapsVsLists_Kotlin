@@ -18,7 +18,7 @@ fun TabPageMap(mapViewModel: MapViewModel) {
             title = stringResource(id = R.string.map_title),
             textFieldValue = stringResource(id = R.string.tf_enter_value),
             onClickButton = { mapViewModel.calculate(it.toInt()) },
-            numberInTextFieldField = mapUiState.defaultInputCount
+            numberInTextField = mapUiState.defaultInputCount
         )
 
         false -> if (mapUiState.calculation) MapResult(

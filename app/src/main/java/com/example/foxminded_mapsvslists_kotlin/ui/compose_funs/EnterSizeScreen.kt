@@ -27,15 +27,12 @@ import com.example.foxminded_mapsvslists_kotlin.model.constants.isNumeric
 
 @Composable
 fun EnterSizeScreen(
-    title: String,
-    textFieldValue: String,
-    onClickButton: (String) -> Unit,
-    numberInTextFieldField: Int
+    title: String, textFieldValue: String, onClickButton: (String) -> Unit, numberInTextField: Int
 ) {
 
     val context = LocalContext.current
     val enterParam = remember {
-        mutableStateOf(numberInTextFieldField.toString())
+        mutableStateOf(numberInTextField.toString())
     }
 
     Column {
@@ -91,7 +88,7 @@ fun EnterSizeScreenPreview() {
         title = stringResource(id = R.string.collection_title),
         onClickButton = {},
         textFieldValue = stringResource(id = R.string.tf_enter_value),
-        numberInTextFieldField = 1_500_000
+        numberInTextField = 1_500_000
     )
 }
 

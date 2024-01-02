@@ -26,8 +26,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -65,9 +64,7 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.9.0-alpha01")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0-rc02")
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.10.01"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.6.0-beta03")
     debugImplementation("androidx.compose.ui:ui-tooling:1.6.0-beta03")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.0-beta03")
 
     //Hilt
     implementation("com.google.dagger:hilt-android:2.50")
@@ -75,12 +72,12 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.50")
 
 
-
+    //Test
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.0-RC2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.0-alpha02")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.0-alpha02")
-
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.0-beta03")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.6.0-beta03")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
 }
 
 kapt {

@@ -18,7 +18,7 @@ fun TabPageCollection(collectionViewModel: CollectionViewModel) {
             title = stringResource(id = R.string.collection_title),
             textFieldValue = stringResource(id = R.string.tf_enter_value),
             onClickButton = { collectionViewModel.calculate(it.toInt()) },
-            numberInTextFieldField = collectionUiState.defaultInputCount
+            numberInTextField = collectionUiState.defaultInputCount
         )
 
         false -> if (collectionUiState.calculation) CollectionResult(

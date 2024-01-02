@@ -16,7 +16,7 @@ class ViewModel {
 
     @Provides
     @Singleton
-    fun CollectionViewModelProvider(collectionsOR: CollectionsOperationsRunner): CollectionViewModel {
+    fun collectionViewModelProvider(collectionsOR: CollectionsOperationsRunner): CollectionViewModel {
         return CollectionViewModel(collectionsOR)
     }
 
