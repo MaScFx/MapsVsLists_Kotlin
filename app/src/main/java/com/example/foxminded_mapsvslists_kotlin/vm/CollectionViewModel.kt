@@ -15,7 +15,6 @@ import javax.inject.Inject
 @HiltViewModel
 class CollectionViewModel @Inject constructor(
     private val runner: IOperationsRunner
-//    private val runner: CollectionsOperationsRunner
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(UiState())
@@ -51,12 +50,4 @@ class CollectionViewModel @Inject constructor(
             }
         }
     }
-
-//    companion object {
-//        val Factory: ViewModelProvider.Factory = viewModelFactory {
-//            initializer {
-//                CollectionViewModel(runner = CollectionsOperationsRunner())
-//            }
-//        }
-//    }
 }
