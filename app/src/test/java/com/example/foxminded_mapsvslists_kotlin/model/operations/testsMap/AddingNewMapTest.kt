@@ -1,7 +1,6 @@
 package com.example.foxminded_mapsvslists_kotlin.model.operations.testsMap
 
 import com.example.foxminded_mapsvslists_kotlin.model.constants.Operations
-import org.junit.Assert
 import org.junit.Assert.*
 import org.junit.Before
 
