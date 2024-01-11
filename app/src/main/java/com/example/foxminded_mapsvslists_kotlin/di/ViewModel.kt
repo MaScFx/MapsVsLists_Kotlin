@@ -1,9 +1,9 @@
 package com.example.foxminded_mapsvslists_kotlin.di
 
-import com.example.foxminded_mapsvslists_kotlin.model.CollectionsOperationsRunner
-import com.example.foxminded_mapsvslists_kotlin.model.MapsOperationsRunner
-import com.example.foxminded_mapsvslists_kotlin.vm.CollectionViewModel
-import com.example.foxminded_mapsvslists_kotlin.vm.MapViewModel
+import com.example.foxminded_mapsvslists_kotlin.data.repository.CollectionsOperationsRunner
+import com.example.foxminded_mapsvslists_kotlin.data.repository.MapsOperationsRunner
+import com.example.foxminded_mapsvslists_kotlin.ui.collection.CollectionViewModel
+import com.example.foxminded_mapsvslists_kotlin.ui.maps.MapViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -7,7 +7,7 @@ import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onNodeWithText
-import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.maps.MapResult
+import com.example.foxminded_mapsvslists_kotlin.ui.maps.MapResult
 import org.junit.Rule
 import org.junit.Test
 

@@ -2,6 +2,11 @@ package com.example.foxminded_mapsvslists_kotlin.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+val Orange = Color(0xFFFFAA00)
+val Black = Color(0xFF000000)
+val White = Color(0xFFFFFFFF)
+val Red = Color(0xFFFF0000)
+
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)

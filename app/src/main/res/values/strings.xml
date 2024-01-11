@@ -2,7 +2,7 @@
     <string name="app_name">Foxminded_MapsVsLists_Kotlin</string>
     <string name="collection_title">Please enter collection size and number of elements to compare</string>
     <string name="map_title">Please enter map size and number of elements to compare</string>
-    <string name="tf_enter_value">enter value</string>
+    <string name="tf_enter_value">Collection size</string>
     <string name="col_add_beginning">Adding in the beginning</string>
     <string name="col_add_middle">Adding in the middle</string>
     <string name="col_add_end">Adding in the end</string>
@@ -20,5 +20,9 @@
     <string name="type_AL">ArrayList</string>
     <string name="type_CoW">CopyOnWrite</string>
     <string name="calculate">CALCULATE</string>
-    <string name="only_numbers">only numbers</string>
+    <string name="only_correct_numbers">only correct numbers</string>
+    <string name="activity">Activity</string>
+    <string name="collections_maps"><![CDATA[Collections & Maps]]></string>
+    <string name="error_you_need_enter_elements_count">Error.You need enter elements count.</string>
+    <string name="attention">Attention</string>
 </resources>

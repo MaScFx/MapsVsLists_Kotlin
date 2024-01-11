@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.MainTabLayout
-import com.example.foxminded_mapsvslists_kotlin.vm.CollectionViewModel
-import com.example.foxminded_mapsvslists_kotlin.vm.MapViewModel
+import com.example.foxminded_mapsvslists_kotlin.ui.MainTabLayout
+import com.example.foxminded_mapsvslists_kotlin.ui.collection.CollectionViewModel
+import com.example.foxminded_mapsvslists_kotlin.ui.maps.MapViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

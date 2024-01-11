@@ -6,7 +6,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextClearance
 import androidx.compose.ui.test.performTextInput
-import com.example.foxminded_mapsvslists_kotlin.ui.compose_funs.EnterSizeScreen
+import com.example.foxminded_mapsvslists_kotlin.ui.EnterSizeScreen
 import org.junit.Rule
 import org.junit.Test
 
@@ -22,7 +22,8 @@ class TabLayoutTest {
                 title = "Test title",
                 textFieldValue = "enter value",
                 onClickButton = {},
-                numberInTextField = 10_000
+                numberInTextField = 10_000,
+                onChangeInputCount = {}
             )
         }
 
